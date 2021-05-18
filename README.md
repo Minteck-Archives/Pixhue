@@ -37,6 +37,7 @@ Pixhue files are read like text, from left to right, line by line. If you have a
 
 Here is the full reference of Pixhue supported instructions. For a detail of how "context" works, go to [Modes](#Modes)
 
+## General Operators
 | Example | Code | Context | Description |
 --- | --- | --- | ---
 |![Red](https://user-images.githubusercontent.com/46352972/118692048-f6d06100-b809-11eb-9bb7-6aacafeba277.png)|HTML: `#ff0000`<br>RGB: `255,0,0`|(any)|Does nothing. Need to be used to fill blank pixels|
@@ -45,3 +46,8 @@ Here is the full reference of Pixhue supported instructions. For a detail of how
 |![White](https://user-images.githubusercontent.com/46352972/118692121-08196d80-b80a-11eb-8488-badd2b38689e.png)|HTML: `#ffffff`<br>RGB: `255,255,255`|ASCII Mode|Disable ASCII mode|
 |![Blue](https://user-images.githubusercontent.com/46352972/118692143-0cde2180-b80a-11eb-91e5-f69ee0c525d8.png)|HTML: `#0000ff`<br>RGB: `0,0,255`|Python Mode|Disable Python mode (and run code)|
 |![Magenta](https://user-images.githubusercontent.com/46352972/118710773-08703380-b81f-11eb-849d-45493bf24111.png)|HTML: `#ff00ff`<br>RGB: `255,0,255`|(any)|Stop processing line and skips to next line (comment)|
+
+## Stack Management
+Pixhue stores data in a "stack", which is a memory area that cannot be larger than 2 KiB (2048 bytes, will cause a Stack Overflow error), and needs to be emptied before exiting the program
+
+> Soon

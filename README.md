@@ -44,3 +44,4 @@ Here is the full reference of Pixhue supported instructions. For a detail of how
 |![Green](https://user-images.githubusercontent.com/46352972/118692099-03ed5000-b80a-11eb-852d-6f09de90dc2d.png)|HTML: `#00ff00`<br>RGB: `0,255,0`|Normal Mode|Enable Python mode (treat the next pixels as ASCII pixels that will be run as Python code)|
 |![White](https://user-images.githubusercontent.com/46352972/118692121-08196d80-b80a-11eb-8488-badd2b38689e.png)|HTML: `#ffffff`<br>RGB: `255,255,255`|ASCII Mode|Disable ASCII mode|
 |![Blue](https://user-images.githubusercontent.com/46352972/118692143-0cde2180-b80a-11eb-91e5-f69ee0c525d8.png)|HTML: `#0000ff`<br>RGB: `0,0,255`|Python Mode|Disable Python mode (and run code)|
+|![Magenta](https://user-images.githubusercontent.com/46352972/118710773-08703380-b81f-11eb-849d-45493bf24111.png)|HTML: `#ff00ff`<br>RGB: `255,0,255`|(any)|Stop processing line and skips to next line (comment)|

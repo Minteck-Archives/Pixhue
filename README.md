@@ -14,7 +14,7 @@ First make sure you have Python 3.7 or newer and PIP installed.
   * ```
     pip install pillow
     ```
-* Run any of the [entry points](#Entry points)
+* Run any of the [entry points](#Entry-points)
 
 # Entry points
 Depending on what you want to do with Pixhue, you can use multiple entry points. If it is the first time you use Python, note that to run a Python file, you need to use this command:
@@ -31,7 +31,7 @@ python <entry point> [arguments...]
 |`pyfile2yagpl.py`|`<file>`|Convert a Python file to a Pixhue image (Pixhue Python mode)|
 
 # Instructions
-Pixhue files are read like text, from left to right, line by line. If you have a red pixel on pixel 0;0 and a black pixel on pixel 0;1, the red pixel will be processed first.
+Pixhue files are read like text, from left to right, line by line. If you have a red pixel on pixel `0;0` and a black pixel on pixel `0;1`, the red pixel will be processed first.
 
 Here is the full reference of Pixhue supported instructions:
 

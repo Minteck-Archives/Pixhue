@@ -2,6 +2,8 @@
 
 Ever wondered why we don't use images for storing programs? Now it's possible with Pixhue!
 
+> Even though both looks similar, Pixhue is different and incompatible with [Piet](https://www.dangermouse.net/esoteric/piet.html), another pixel-based programming language
+
 ## How does it work
 You have a JPEG, PNG or [any other image file supported by Pillow](https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html), and the image's pixels will be used for instructions.
 
@@ -35,10 +37,10 @@ Pixhue files are read like text, from left to right, line by line. If you have a
 
 Here is the full reference of Pixhue supported instructions:
 
-| Color | Context | Description |
---- | --- | ---
-|a|(any)|Does nothing. Need to be used to fill blank pixels|
-|b|No mode|Enable ASCII mode (treat the next pixels as ASCII pixels)|
-|c|No mode|Enable Python mode (treat the next pixels as ASCII pixels that will be run as Python code)|
-|d|ASCII Mode|Disable ASCII mode|
-|e|Python Mode|Disable Python mode (and run code)|
+| Example | Code | Context | Description |
+--- | --- | --- | ---
+|![Red](https://user-images.githubusercontent.com/46352972/118692048-f6d06100-b809-11eb-9bb7-6aacafeba277.png)|HTML: `#ff0000`, RGB: `255,0,0`|(any)|Does nothing. Need to be used to fill blank pixels|
+|![Black](https://user-images.githubusercontent.com/46352972/118692081-fe900580-b809-11eb-86b1-ba3778937e7e.png)|HTML: `#000000`, RGB: `0,0,0`|Enable ASCII mode (treat the next pixels as ASCII pixels)|
+|![Green](https://user-images.githubusercontent.com/46352972/118692099-03ed5000-b80a-11eb-852d-6f09de90dc2d.png)|HTML: `#00ff00`, RGB: `0,255,0`|Enable Python mode (treat the next pixels as ASCII pixels that will be run as Python code)|
+|![White](https://user-images.githubusercontent.com/46352972/118692121-08196d80-b80a-11eb-8488-badd2b38689e.png)|HTML: `#ffffff`, RGB: `255,255,255`|Disable ASCII mode|
+|![Blue](https://user-images.githubusercontent.com/46352972/118692143-0cde2180-b80a-11eb-91e5-f69ee0c525d8.png)|HTML: `#0000ff`, RGB: `0,0,255`|Python Mode|Disable Python mode (and run code)|

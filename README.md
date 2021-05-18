@@ -7,7 +7,7 @@ Ever wondered why we don't use images for storing programs? Now it's possible wi
 ## How does it work
 You have a JPEG, PNG or [any other image file supported by Pillow](https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html), and the image's pixels will be used for instructions.
 
-Every color have a defined instruction (see [Instructions](#Instructions)) for more details, and unrecognized colors will be ignored.
+Every color have a defined instruction (see [Instructions](#Instructions) for more details), and unrecognized colors will be ignored.
 
 ## Getting started
 First make sure you have Python 3.7 or newer and PIP installed.

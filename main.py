@@ -39,33 +39,44 @@ for x in range(width):
         index = index + 1
         pixel = pixels[x, y]
 
+        try:
+            lcSet
+            lineComment = True
+        except NameError:
+            lineComment = False
+
         if debug:
             print("Row " + str(row) + ", column " + str(column) + ", pixel " + str(pixel))
 
-        if pixel == (255, 255, 255):
+        if not lineComment and pixel == (255, 255, 255):
             if debug:
                 print(str(index) + ": ASCII Mode OFF")
             asciiMode = False
-        if asciiMode and pixel != (255, 255, 255):
+        if not lineComment and pixel == (255, 0, 255):
+            if debug:
+                print(str(index) + ": Starting Line Comment")
+            lcSet = True
+            continue
+        if not lineComment and asciiMode and pixel != (255, 255, 255):
             if debug:
                 print(str(index) + ": Processing ASCII")
                 continue
             print(chr(pixel[0]), end="")
-        if pyMode and pixel != (255, 255, 255):
+        if not lineComment and pyMode and pixel != (255, 255, 255):
             if debug:
                 print(str(index) + ": Processing Python code")
                 continue
             pyCode = pyCode + chr(pixel[0])
-        if pixel == (0, 0, 0):
+        if not lineComment and not pyMode and pixel == (0, 0, 0):
             if debug:
                 print(str(index) + ": ASCII Mode ON")
             asciiMode = True
-        if pixel == (0, 255, 0):
+        if not lineComment and not asciiMode and pixel == (0, 255, 0):
             if debug:
                 print(str(index) + ": Python Mode ON")
             pyMode = True
             pyCode = ""
-        if pixel == (0, 0, 255):
+        if not lineComment and pixel == (0, 0, 255):
             if debug:
                 print(str(index) + ": Python Mode OFF")
             pyMode = False

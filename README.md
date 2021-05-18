@@ -5,7 +5,7 @@ Ever wondered why we don't use images for storing programs? Now it's possible wi
 > Even though both looks similar, Pixhue is different and incompatible with [Piet](https://www.dangermouse.net/esoteric/piet.html), another pixel-based programming language
 
 ## How does it work
-You have a JPEG, PNG or [any other image file supported by Pillow](https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html), and the image's pixels will be used for instructions.
+You have a JPEG, PNG or [any other image file supported by Pillow](https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html) (PNG recommanded), and the image's pixels will be used for instructions.
 
 Every color have a defined instruction (see [Instructions](#Instructions) for more details), and unrecognized colors will be ignored.
 
@@ -16,7 +16,13 @@ First make sure you have Python 3.7 or newer and PIP installed.
   * ```
     pip install pillow
     ```
-* Run any of the [entry points](#Entry-points)
+* Make sure you follow the [image requirements](#Image-Requirements) and run any of the [entry points](#Entry-points)
+
+### Image Requirements
+The following requirements hasn't been officially tested, but they make a general recommandation on how your images should be:
+* use the RGB color profile (not CYMK, YUV, HSL or indexed colors)
+* make sure you disable compresion to prevent artifacts appearing on big programs
+* make sure you have transparent pixels (replace them with red or `#ff0000`)
 
 # Entry points
 Depending on what you want to do with Pixhue, you can use multiple entry points. If it is the first time you use Python, note that to run a Python file, you need to use this command:
@@ -48,6 +54,11 @@ Here is the full reference of Pixhue supported instructions. For a detail of how
 |![Magenta](https://user-images.githubusercontent.com/46352972/118710773-08703380-b81f-11eb-849d-45493bf24111.png)|HTML: `#ff00ff`<br>RGB: `255,0,255`|(any)|Stop processing line and skips to next line (comment)|
 
 ## Stack Management
-Pixhue stores data in a "stack", which is a memory area that cannot be larger than 2 KiB (2048 bytes, will cause a Stack Overflow error), and needs to be emptied before exiting the program
+Pixhue stores data in a "stack", which is a memory area that cannot be larger than 2 KiB (2048 bytes, will cause a Stack Overflow error), and needs to be emptied before exiting the program. The purpose of the stack is to store data between multiple runs of Python mode through the `programStack` array.
 
-> Soon
+The stack management instructions are not available in Python or ASCII mode.
+
+| Example | Code | Description |
+--- | --- | ---
+|![Dark Red](https://user-images.githubusercontent.com/46352972/118716522-35bfe000-b825-11eb-81e2-2a1f5189aa2f.png)|HTML: `#00007f`<br>RGB: `0,0,127`|Dump the stack|
+|![Dark Blue](https://user-images.githubusercontent.com/46352972/118716479-29d41e00-b825-11eb-816d-5d60ad00b911.png)|HTML: `#7f0000`<br>RGB: `127,0,0`|Flushes the stack. Required for successful program termination if you use the stack.|
